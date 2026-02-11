@@ -29,13 +29,39 @@ public class CreditoCorporativo{
         this.esResgioso=false;
     }
 
-    public void SetsaldoPendiente(double saldoPendiente){
-        if(saldoPendiente< 0){
-            System.out.println("Error");
-        }else{
-            this.saldoPendiente=saldoPendiente;
+    public double GetsaldoPendiente(){
+        return saldoPendiente;
+        
         }
+        public boolean esResgioso(){
+            return esResgioso;
+        }
+
+        public void abonarCapital (double cantidad){
+            if (cantidad <=0){
+                System.out.println("Error");
+                return;
+            }
+
+            if (saldoPendiente-cantidad <0){
+                System.out.println("operacion rechazada");
+                return;
+            }
+            saldoPendiente=saldoPendiente-cantidad;
+           
+
+        }
+        public void capatalizarIntereses (){
+            double Interes = saldoPendiente*tasaInteres;
+            saldoPendiente = saldoPendiente+ Interes;
+
+            if(esResgioso){
+                System.out.println("credito riesgoso");
+            }
+
+
          
     }
 
 }
+
