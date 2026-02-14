@@ -34,7 +34,7 @@ public class CreditoCorporativo{
         
         }
         public boolean esResgioso(){
-            return esResgioso;
+            return saldoPendiente> (montoPrestado*1.2);
         }
 
         public void abonarCapital (double cantidad){
@@ -44,7 +44,7 @@ public class CreditoCorporativo{
             }
 
             if (saldoPendiente-cantidad <0){
-                System.out.println("operacion rechazada");
+                System.out.println("Operacion rechazada");
                 return;
             }
             saldoPendiente=saldoPendiente-cantidad;
@@ -56,7 +56,7 @@ public class CreditoCorporativo{
             saldoPendiente = saldoPendiente+ Interes;
 
             if(esResgioso){
-                System.out.println("credito riesgoso");
+                System.out.println("Credito riesgoso");
             }
 
 
